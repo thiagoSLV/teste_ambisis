@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Application;
 
+use Empresa\Controller\EmpresaController;
 use Laminas\Router\Http\Literal;
 use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;
@@ -16,7 +17,7 @@ return [
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
-                        'controller' => Controller\IndexController::class,
+                        'controller' => EmpresaController::class,
                         'action'     => 'index',
                     ],
                 ],

@@ -1,0 +1,60 @@
+<head>
+
+</head>
+<?php
+
+$title = 'Empresas';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('empresa', ['action' => 'add']) ?>">Cadastrar empresa</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Nome</th>
+    <th>CNPJ</th>
+    <th>Endereço</th>
+    <th>Licenças</th>
+    <th>&nbsp;</th>
+</tr>
+<?php if(count($empresas) <= 0):?>
+        <tr><td> <span>Não há empresas cadastradas</span> </td></tr>
+<?php endif?>
+<?php foreach ($empresas as $empresa) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($empresa->razao_social) ?></td>
+        <td class="cnpj"><?= $this->escapeHtml($empresa->cnpj) ?></td>
+        <td><?= $this->escapeHtml("$empresa->bairro, $empresa->cidade, $empresa->estado" ) ?></td>
+        <?php if(count($empresa->licencas) <= 0):?>
+            <td><span>Essa empresa não possui licenças cadastradas</span> </td>
+        <?php else:?>
+            <td>
+                <?php foreach ($empresa->licencas as $licenca) :?>
+                    <?= $this->escapeHtml($licenca->numero)." | " ?>
+                <?php endforeach; ?>
+            </td>
+        <?php endif?>
+
+        <td>
+            <a href="<?= $this->url('empresa', ['action' => 'edit', 'id' => $empresa->id]) ?>">Editar</a>
+            <a href="<?= $this->url('empresa', ['action' => 'delete', 'id' => $empresa->id]) ?>">Remover</a>
+        </td>
+ 
+
+    </tr>
+    
+<?php endforeach; ?>
+</table>
+<?php 
+$this->headScript()->prependFile(
+    '/js/jquery-3.5.1.min.js',
+    'text/javascript',
+);
+
+$this->headScript()->appendFile(
+    '/js/empresa.js',
+    'text/javascript',
+);?>
+<script src='/js/jquery.mask.min.js'/>

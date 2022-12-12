@@ -6,7 +6,17 @@
  * This should be an array of module namespaces used in the application.
  */
 return [
+    'Laminas\Mvc\I18n',
+    'Laminas\I18n',
+    'Laminas\InputFilter',
+    'Laminas\Filter',
+    'Laminas\Form',
+    'Laminas\Db',
+    'Laminas\Router',
+    'Laminas\Validator',
     'Laminas\Router',
     'Laminas\Validator',
     'Application',
+    'Empresa',
+    'Licenca',
 ];

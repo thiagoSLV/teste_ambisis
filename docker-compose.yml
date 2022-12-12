@@ -1,12 +1,14 @@
 services:
   php-fpm:
-    image: php:fpm-alpine
+    build:
+      context: .
     ports:
      - 9000:9000
     volumes:
       - ./:/var/www/
     working_dir: /var/www/
-
+    links:
+      - database
   nginx:
     image: nginx:alpine
     ports:
@@ -18,6 +20,8 @@ services:
       - ./nginx/sites/:/etc/nginx/sites-available
       - ./nginx/conf.d/:/etc/nginx/conf.d
     working_dir: /var/www/
+    links:
+      - database
 
   database:
     image: mysql

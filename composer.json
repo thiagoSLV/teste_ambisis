@@ -14,11 +14,22 @@
         "laminas/laminas-component-installer": "^3.0",
         "laminas/laminas-development-mode": "^3.2",
         "laminas/laminas-skeleton-installer": "^1.0",
-        "laminas/laminas-mvc": "^3.3.4"
+        "laminas/laminas-mvc": "^3.3.4",
+        "laminas/laminas-form": "^3.8",
+        "laminas/laminas-db": "^2.16",
+        "laminas/laminas-servicemanager": "^3.20",
+        "laminas/laminas-view": "^2.25",
+        "laminas/laminas-i18n": "2.21.0",
+        "igorescobar/jquery-mask-plugin": "^1.14",
+        "nesbot/carbon": "^2.64",
+        "laminas/laminas-i18n-resources": "^2.9",
+        "laminas/laminas-mvc-i18n": "^1.7"
     },
     "autoload": {
         "psr-4": {
-            "Application\\": "module/Application/src/"
+            "Application\\": "module/Application/src/",
+            "Empresa\\": "module/Empresa/src/",
+            "Licenca\\": "module/Licenca/src/"
         }
     },
     "autoload-dev": {
