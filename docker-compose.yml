@@ -40,6 +40,7 @@ services:
     ports:
       - '3306:3306'
     volumes:
+      - ./script.sql:/docker-entrypoint-initdb.d/script.sql
       - my-db:/var/lib/mysql
     
 # Names our volume
