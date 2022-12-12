@@ -118,7 +118,7 @@ class EmpresaController extends AbstractActionController
         if ($request->isPost()) {
             $del = $request->getPost('del', 'No');
 
-            if ($del == 'Yes') {
+            if ($del == 'Sim') {
                 $empresa = $this->empresaTable->getEmpresa($id);
                 $licencas = $this->licencaTable->getLicencaByEmpresaId($empresa->id);
                 foreach($licencas as $licenca){

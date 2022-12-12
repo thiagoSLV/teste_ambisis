@@ -135,7 +135,7 @@ class LicencaController extends AbstractActionController
         if ($request->isPost()) {
 
             $del = $request->getPost('del', 'No');
-            if ($del == 'Yes') {
+            if ($del == 'Sim') {
                 $id = (int) $request->getPost('id');
                 $this->licencaTable->deleteLicenca($id);
             }
